@@ -156,8 +156,6 @@ func saveIt(w http.ResponseWriter, r *http.Request) {
 
 	notionPayload := getNotionPayload(details, tags, d)
 
-	fmt.Println(notionPayload.String())
-
 	req, err := http.NewRequest("POST", "https://api.notion.com/v1/pages", notionPayload)
 	req.Header.Set("Authorization", "Bearer "+d.IntegrationToken)
 	req.Header.Set("Content-Type", "application/json")
